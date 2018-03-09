@@ -1,17 +1,17 @@
 library(data.table)
 library(dplyr)
-setwd("C:/Users/Клеопатра/Documents/UCI HAR Dataset")
+setwd("./UCI HAR Dataset")
 library(reshape2)
 ##load activity labels and data column names
-activity_labels <- read.table("C:/Users/Клеопатра/Documents/UCI HAR Dataset/activity_labels.txt")[,2]
+activity_labels <- read.table("./UCI HAR Dataset/activity_labels.txt")[,2]
 
-features <- read.table("C:/Users/Клеопатра/Documents/UCI HAR Dataset/features.txt")[,2]
+features <- read.table("./UCI HAR Dataset/features.txt")[,2]
 
 extract_features <- grepl("mean|std", features)
 
-X_test <- read.table("C:/Users/Клеопатра/Documents/UCI HAR Dataset/test/X_test.txt")
-y_test <- read.table("C:/Users/Клеопатра/Documents/UCI HAR Dataset/test/y_test.txt")
-subject_test <- read.table("C:/Users/Клеопатра/Documents/UCI HAR Dataset/test/subject_test.txt")
+X_test <- read.table("./UCI HAR Dataset/test/X_test.txt")
+y_test <- read.table("./UCI HAR Dataset/test/y_test.txt")
+subject_test <- read.table("./UCI HAR Dataset/test/subject_test.txt")
 
 names(X_test) = features
 
@@ -27,10 +27,10 @@ names(subject_test) = "subject"
 test_data <- cbind(as.data.table(subject_test), y_test, X_test)
 
 # Load and process X_train & y_train data.
-X_train <- read.table("C:/Users/Клеопатра/Documents/UCI HAR Dataset/train/X_train.txt")
-y_train <- read.table("C:/Users/Клеопатра/Documents/UCI HAR Dataset/train/y_train.txt")
+X_train <- read.table("./UCI HAR Dataset/train/X_train.txt")
+y_train <- read.table("./UCI HAR Dataset/train/y_train.txt")
 
-subject_train <- read.table("C:/Users/Клеопатра/Documents/UCI HAR Dataset/train/subject_train.txt")
+subject_train <- read.table("./UCI HAR Dataset/train/subject_train.txt")
 
 names(X_train) = features
 
